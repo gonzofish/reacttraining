@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const id = 'YOUR_CLIENT_ID';
-const secret = 'YOUR_SECRET_ID';
+const id = '3a429c860a9bc8ec10b2';
+const secret = '01208d61494a176b15082e0a92736ecd8ddadf76';
 const params = `?client_id=${ id }&client_secret=${ secret }`;
 
 const battle = (players) =>
@@ -19,10 +19,10 @@ const getUserData = (player) => axios.all([
 
 const getProfile = (username) => axios.get(`https://api.github.com/users/${ username }${ params }`)
     .then((user) => user.data);
-const getRepos = (username) => axios.get(`https://api.github.com/users/${ username }/repos${ params }`);
+const getRepos = (username) => axios.get(`https://api.github.com/users/${ username }/repos${ params }`)
+    .then((user) => user.data);
 
-const calculateScore = (profile, repos) =>
-    (follower * 3) + getStarCount(repos);
+const calculateScore = (profile, repos) => (profile.followers * 3) + getStarCount(repos);
 
 const getStarCount = (repos) => repos.reduce((count, repo) =>
     count + repo.stargazers_count,

@@ -56,9 +56,12 @@ class Battle extends React.Component {
                     }
                     {playerOne.image !== null &&
                         <PlayerCard avatar={playerOne.image}
-                            id="playerOne"
-                            onReset={this.handleReset}
-                            username={playerOne.name} />
+                            username={playerOne.name}>
+                            <button className="reset"
+                                onClick={this.handleReset.bind(null, 'playerOne')}>
+                                Reset
+                            </button>
+                        </PlayerCard>
                     }
 
                     {!playerTwo.name &&
@@ -68,9 +71,12 @@ class Battle extends React.Component {
                     }
                     {playerTwo.image !== null &&
                         <PlayerCard avatar={playerTwo.image}
-                            id="playerTwo"
-                            onReset={this.handleReset}
-                            username={playerTwo.name} />
+                            username={playerTwo.name}>
+                            <button className="reset"
+                                onClick={this.handleReset.bind(null, 'playerTwo')}>
+                                Reset
+                            </button>
+                        </PlayerCard>
                     }
                 </div>
 
