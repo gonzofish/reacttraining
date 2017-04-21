@@ -1,5 +1,7 @@
 const React = require('react');
+
 const api = require('../utils/api');
+const Loading = require('./loading');
 const Player = require('./player');
 const queryString = require('query-string');
 
@@ -44,7 +46,7 @@ class Results extends React.Component {
         } = this.state;
 
         if (loading === true) {
-            return <p>Loading...</p>;
+            return <Loading />;
         }
 
         if (error) {
